@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photo Animation</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reset CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="./bootstrap-4.0.0/dist/css/bootstrap.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css" />
+</head>
+
+<style>
+
+  body {
+    background: #fff;
+  }
+
+  /* Bootstrap Overrides */
+  figure {
+    margin-bottom: 0;
+  }
+
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .main-container {
+    overflow: hidden;
+  }
+
+  .photo-container {
+    background-image: url('kevin-fitzgerald-479720-unsplash.jpg');
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    padding: 25% 0;
+    position: relative;
+    transform: scale(1);
+    width: 100%;
+    min-height: 300px;
+  }
+
+  .title,
+  .subtitle {
+    color: #fff;
+    text-align: center;
+    visibility: visible;
+    opacity: 0;
+    transform: translate3d(50%,0,0);
+    font-weight: 100;
+  }
+
+  .title {
+    font-size: 2em;
+  }
+
+  .subtitle {
+    font-size: .8em;
+  }
+
+  .title i {
+    opacity: 0;
+  }
+
+  .photo-container:hover {
+    cursor: pointer;
+  }
+
+  .photo-modal {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7));
+    width: 100%;
+    height: 100%;
+  }
+
+  footer .fa {
+    font-size: 1.5em;
+  }
+
+  footer p {
+    font-size: .8em;
+
+  }
+
+  @media(min-width: 575px){
+    .photo-container {
+      padding: 35% 0;
+      min-height: 240px;
+    }
+
+    .title {
+      font-size: 1.65em;
+    }
+  }
+
+  @media (min-width: 768px){
+    .title {
+      font-size: 1.35em;
+    }
+
+    .subtitle {
+      font-size: .7em;
+    }
+
+    .photo-container {
+      padding: 35% 0;
+      min-height: 210px;
+    }
+  }
+
+  @media (min-width: 992px){
+    .title {
+      font-size: 2em;
+    }
+
+    .subtitle {
+      font-size: .8em;
+    }
+
+    .photo-container {
+      padding: 35% 0;
+      min-height: 290px;
+    }
+  }
+
+  @media (min-width: 1280px){
+    .title {
+      font-size: 2em;
+    }
+
+    .photo-container {
+      padding: 30% 0;
+      min-height: 290px;
+    }
+  }
+
+</style>
+
+<body>
+
+<div class="container">
+  <div class="row">
+    <h1 class="page-title col-12 text-center mt-5">Responsive Photo</h1>
+    <p class="desc col-12 font-weight-light text-muted text-center mb-5">Responsive bootsrap photo grid with javascript animations on hover event</p>
+  </div>
+
+  <div class="row">
+    <figure class="col-sm-6 col-md-4 main-container">
+      <div class="photo-container">
+        <div class="photo-modal"></div>
+        <h1 class="title">
+          <i class="fa fa-eercast" aria-hidden="true"></i>
+          Buy this Photo
+        </h1>
+        <p class="subtitle">
+          This is the best photo of all time
+        </p>
+      </div>
+    </figure>
+
+    <figure class="col-sm-6 col-md-4 main-container">
+      <div class="photo-container">
+        <div class="photo-modal"></div>
+        <h1 class="title">
+          <i class="fa fa-eercast" aria-hidden="true"></i>
+          Buy this Photo
+        </h1>
+        <p class="subtitle">
+          This is the best photo of all time
+        </p>
+      </div>
+    </figure>
+
+    <figure class="col-sm-6 col-md-4 main-container">
+      <div class="photo-container">
+        <div class="photo-modal"></div>
+        <h1 class="title">
+          <i class="fa fa-eercast" aria-hidden="true"></i>
+          Buy this Photo
+        </h1>
+        <p class="subtitle">
+          This is the best photo of all time
+        </p>
+      </div>
+    </figure>
+
+    <figure class="col-sm-6 col-md-4 main-container">
+      <div class="photo-container">
+        <div class="photo-modal"></div>
+        <h1 class="title">
+          <i class="fa fa-eercast" aria-hidden="true"></i>
+          Buy this Photo
+        </h1>
+        <p class="subtitle">
+          This is the best photo of all time
+        </p>
+      </div>
+    </figure>
+
+    <figure class="col-sm-6 col-md-4 main-container">
+      <div class="photo-container">
+        <div class="photo-modal"></div>
+        <h1 class="title">
+          <i class="fa fa-eercast" aria-hidden="true"></i>
+          Buy this Photo
+        </h1>
+        <p class="subtitle">
+          This is the best photo of all time
+        </p>
+      </div>
+    </figure>
+
+    <figure class="col-sm-6 col-md-4 main-container">
+      <div class="photo-container">
+        <div class="photo-modal"></div>
+        <h1 class="title">
+          <i class="fa fa-eercast" aria-hidden="true"></i>
+          Buy this Photo
+        </h1>
+        <p class="subtitle">
+          This is the best photo of all time
+        </p>
+      </div>
+    </figure>
+  </div>
+
+  <footer class="text-center mt-5 mb-5">
+    <i class="fa fa-eercast"></i>
+    <p class="text-muted font-weight-light">By: Elliot Richardson</p>
+  </footer>
+
+</div>
+
+
+
+
+  <script src="./jquery.js"></script>
+  <script>
+    $(document).ready(function(){
+      var $container = $('.photo-container');
+      var is_animated = false;
+      var reset_transition = 'all .2s ease-out';
+      var translate0 = 'translate3d(0,0,0)';
+      var translate50 = 'translate3d(50%,0,0)';
+
+      $container.on('mouseenter mouseleave', function(){
+        is_animated = !is_animated;
+
+        if(is_animated){
+          $(this).css({
+            transform: 'scale(1.125)',
+            transition: reset_transition
+          });
+
+          $(this).find('.title').css({
+            opacity: 1,
+            transform: translate0,
+            transition: 'transform .6s ease-out, opacity 1s ease-out .1s'
+          });
+
+          $(this).find('.photo-modal').css({
+            opacity: 1,
+            transition: 'opacity .25s ease-out'
+          });
+
+          $(this).find('.subtitle').css({
+            opacity: 1,
+            transform: translate0,
+            transition: 'transform .5s ease-out .9s, opacity .9s ease-out 1s'
+          });
+
+          $(this).find('.title i').css({
+            opacity: 1,
+            transition: 'opacity 1s ease-out .5s'
+          });
+
+        } else {
+
+          $(this).css({
+            transform: 'scale(1)',
+            transition: reset_transition
+          });
+
+          $('.title, .subtitle').css({
+            opacity: 0,
+            transform: translate50,
+            transition: reset_transition
+          });
+
+          $('.title i, .photo-modal').css({
+            opacity: 0,
+            transition: reset_transition
+          });
+
+        }
+
+      });
+
+    })
+
+  </script>
+</body>
+
+</html>
